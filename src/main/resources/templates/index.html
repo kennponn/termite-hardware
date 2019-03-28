@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+ <div th:include="navbar"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+			<ul class="list-group">
+			  <li class="list-group-item">
+			    <span class="badge">14</span>
+			    <a >CPU(处理器)</a>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">14</span>
+			    <a > 显卡</a>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">14</span>
+			    <a > 内存</a>
+			  </li>
+			 <li class="list-group-item">
+			    <span class="badge">14</span>
+			   <a >  HDD硬盘</a>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">14</span>
+			    <a > SSD(固态)</a>
+			  </li><li class="list-group-item">
+			    <span class="badge">14</span>
+			   <a >  主板</a>
+			  </li><li class="list-group-item">
+			    <span class="badge">14</span>
+			 <a >  电源</a>
+			  </li><li class="list-group-item">
+			    <span class="badge">14</span>
+			  <a >显示器</a>
+			  </li><li class="list-group-item">
+			    <span class="badge">14</span>
+			 <a >   板/U套装</a>
+			  </li><li class="list-group-item">
+			    <span class="badge">14</span>
+			   <a > 机箱</a>
+			  </li>
+			  <li class="list-group-item">
+			    <span class="badge">14</span>
+			  <a >  散热</a>
+			  </li>
+			</ul>
+			</div>
+			<div class="col-sm-10">
+				<div class="col-sm-6 col-md-4" th:each="prod : ${p}">
+					<div class="thumbnail" style="height: 440px">
+						
+						<a th:href="@{detail/{productId}(productId=${prod.productId})}"><img th:src="${prod.img}" alt="..."></a>
+						
+						<div class="caption">
+							<h5>
+								<a th:text="${prod.productName}" th:href="@{detail/{productId}(productId=${prod.productId})}"></a>
+							</h5>
+							<p>
+								<em>¥&nbsp;</em><span style="color: red; font-weight: bold"
+									th:text="${prod.price}"></span>
+							</p>
+							<p>
+								<a th:href="${prod.productId}" href="#" class="btn btn-primary"
+									role="button">加入收藏</a> <a href="#" class="btn btn-danger"
+									role="button">查看价格浮动</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<nav class="pull-right" aria-label="...">
+				<ul class="pagination pagination-sm">
+					<li class="disabled"><a href="#" aria-label="Previous"><span
+							aria-hidden="true">&laquo;</span></a></li>
+					<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
